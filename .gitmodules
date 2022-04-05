@@ -1,0 +1,3 @@
+[submodule "gtk"]
+	path = packages/pgtk/gtk
+	url = https://github.com/PHP-GTK/gtk
