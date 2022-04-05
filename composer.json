@@ -13,5 +13,11 @@
     ],
     "require": {
         "pgtk/gtk": "dev-master"
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/pgtk/gtk"
+        }
+    ]
 }
