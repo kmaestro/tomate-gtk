@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.freedesktop.portal.Documents
+Exec=/home/kmaestro/PhpstormProjects/gtk/_build/subprojects/glib/gio/tests/services/../fake-document-portal

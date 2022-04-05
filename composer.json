@@ -1,0 +1,17 @@
+{
+    "name": "kmaestro/tomate-gtk",
+    "autoload": {
+        "psr-4": {
+            "Tomate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kmaestro",
+            "email": "polishuk1003@gmail.com"
+        }
+    ],
+    "require": {
+        "pgtk/gtk": "dev-master"
+    }
+}

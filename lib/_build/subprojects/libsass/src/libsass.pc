@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+
+Name: libsass
+URL: https://github.com/sass/libsass
+Description: A C implementation of a Sass compiler
+Version: 3.6.4
+Libs: -L${libdir} -lsass
+Cflags: -I${includedir}

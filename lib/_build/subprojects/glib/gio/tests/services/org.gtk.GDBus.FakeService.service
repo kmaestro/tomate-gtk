@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.gtk.GDBus.FakeService
+Exec=/home/kmaestro/PhpstormProjects/gtk/_build/subprojects/glib/gio/tests/services/../fake-service-name

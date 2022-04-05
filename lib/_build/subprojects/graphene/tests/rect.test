@@ -1,0 +1,4 @@
+[Test]
+Type=session
+Exec=/usr/local/libexec/installed-tests/graphene-1.0/rect
+TestEnvironment=MUTEST_OUTPUT=tap;
