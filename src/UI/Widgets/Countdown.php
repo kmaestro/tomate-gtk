@@ -16,9 +16,9 @@ class Countdown extends Label
         $this->update();
     }
 
-    public function update()
+    public function update($i = '00:00')
     {
-        $this->setMarkup('<span face="sans-serif" font="45">00:00</span>');
+        $this->setMarkup(sprintf('<span face="sans-serif" font="45">%s</span>', $i));
     }
 }
 

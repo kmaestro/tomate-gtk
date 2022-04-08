@@ -12,8 +12,10 @@ class Window extends BaseWindow
 {
     private $run = true;
 
-    public function __construct(Header $header, Countdown $countdown)
-    {
+    public function __construct(
+        public readonly Header $header,
+        public readonly Countdown $countdown
+    ) {
         parent::__construct();
         $this->setTitle('Tomate');
         $this->setDefaultSize(350, -1);
@@ -41,4 +43,6 @@ class Window extends BaseWindow
     {
         $this->run = false;
     }
+
+
 }
