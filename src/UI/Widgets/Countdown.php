@@ -13,12 +13,17 @@ class Countdown extends Label
         $this->widget->setMarginBottom(10);
         $this->widget->setMarginEnd(10);
         $this->widget->setMarginStart(10);
-        $this->update();
+        $this->update('00:00');
     }
 
-    public function update($i = '00:00')
+    public function update(string $time)
     {
-        $this->setMarkup(sprintf('<span face="sans-serif" font="45">%s</span>', $i));
+        $this->setMarkup($this->timerMarkup($time));
+    }
+
+    private function timerMarkup(string $timeLeft): string
+    {
+        return sprintf('<span face="sans-serif" font="45">%s</span>', $timeLeft);
     }
 }
 
