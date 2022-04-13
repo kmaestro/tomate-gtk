@@ -4,7 +4,6 @@ namespace Tomate\Pomodoro;
 
 use Tomate\Pomodoro\Event\Bus;
 use Tomate\Pomodoro\Event\Enum\Event;
-use Tomate\UI\Widgets\Header;
 
 class Timer
 {
@@ -22,14 +21,29 @@ class Timer
 
     public function start(int $seconds)
     {
+        if ($this->state === State::started) {
+            return;
+        }
         $this->state = State::started;
         $this->duration = $this->timeLeft = $seconds;
         timeoutAddSeconds(1, $this->update(...));
     }
 
+    public function stop()
+    {
+        $this->state = State::stopped;
+        $this->reset();
+        $this->trigger(Event::timerUpdate);
+    }
+
     public function isRunning(): bool
     {
         return $this->state === State::started;
+    }
+
+    public function reset()
+    {
+        $this->duration = $this->timeLeft = 0;
     }
 
     private function update(): bool
@@ -38,12 +52,17 @@ class Timer
             return false;
         }
 
+        if ($this->timeLeft <= 0) {
+            return false;
+        }
+
+        $this->timeLeft--;
         $this->trigger(Event::timerUpdate);
         return true;
     }
 
     private function trigger(Event $event)
     {
-        $this->bus->send($event);
+        $this->bus->send($event, new SessionPayload($this->timeLeft));
     }
 }

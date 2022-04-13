@@ -20,6 +20,6 @@ class Session
 
     public function stop()
     {
-
+        $this->timer->stop();
     }
 }

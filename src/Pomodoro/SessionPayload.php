@@ -4,8 +4,12 @@ namespace Tomate\Pomodoro;
 
 class SessionPayload
 {
+    public function __construct(private int $duration)
+    {
+    }
+
     public function countdown()
     {
-        return '';
+        return date('i:s', $this->duration);
     }
 }

@@ -2,27 +2,23 @@
 
 namespace Tomate\Pomodoro\Event;
 
-use Psr\Container\ContainerInterface;
+use Sabre\Event\EventEmitter;
 use Tomate\Pomodoro\Event\Enum\Event;
-use Tomate\UI\Widgets\Countdown;
+use Tomate\Pomodoro\SessionPayload;
 
 class Bus
 {
-    public function __construct(private ContainerInterface $container)
+    public function __construct(private EventEmitter $eventEmitter)
     {
     }
 
-    public function connect(Event $event)
+    public function connect(Event $event, callable $fun)
     {
-
+        $this->eventEmitter->on($event->name, $fun);
     }
 
-    public function send(Event $event)
+    public function send(Event $event, SessionPayload $payload)
     {
-
-        static $i = 0;
-        /** @var Countdown $Countdown */
-        $Countdown = $this->container->get(Countdown::class);
-        $Countdown->update($i++);
+        $this->eventEmitter->emit($event->name, [$payload]);
     }
 }
