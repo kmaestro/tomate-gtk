@@ -15,7 +15,7 @@ class Session
 
     public function start()
     {
-        $this->timer->start(123);
+        $this->timer->start(25*60);
     }
 
     public function stop()
