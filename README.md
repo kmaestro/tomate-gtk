@@ -7,11 +7,11 @@
 **Installation**
 
 ```bash
-composer require pgtk/gtk
+git submodule update --init
 ```
 
 ```bash
-git submodule update --init
+composer i
 ```
 
 ![alt text](img/win.png "Window")
