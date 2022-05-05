@@ -1,4 +1,0 @@
-[Test]
-Type=session
-Exec=/usr/local/libexec/installed-tests/graphene-1.0/ray
-TestEnvironment=MUTEST_OUTPUT=tap;
