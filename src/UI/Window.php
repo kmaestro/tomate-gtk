@@ -25,7 +25,7 @@ class Window extends BaseWindow
 
     public function run()
     {
-        $this->widget->GObject->connect('destroy', $this->quit(...));
+        $this->connect('destroy', $this->quit(...));
         $this->widget->show();
         while ($this->run) {
             $this->widget->GObject->mainContextIteration(null, true);

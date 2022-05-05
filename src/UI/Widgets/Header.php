@@ -24,7 +24,7 @@ class Header extends HeaderBar
     {
         $button = new ButtonIcon($icon);
         $button->widget->setTooltipText($tooltipText);
-        $button->widget->GObject->connect('clicked', $fun);
+        $button->connect('clicked', $fun);
         $this->packStart($button);
         return $button;
     }
