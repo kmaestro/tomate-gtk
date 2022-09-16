@@ -8,16 +8,19 @@ use Sabre\Event\EventEmitter;
 use Tomate\Pomodoro\Event\Enum\Event;
 use Tomate\Pomodoro\SessionPayload;
 
+/**
+ * @method setMarkup();
+ */
 class Countdown extends Label
 {
     public function __construct(private EventEmitter $emitter)
     {
-        parent::__construct('00:00');
+        parent::__construct('01:00');
         $this->widget->setMarginTop(30);
         $this->widget->setMarginBottom(10);
         $this->widget->setMarginEnd(10);
         $this->widget->setMarginStart(10);
-        $this->update(new SessionPayload(0));
+        $this->update(new SessionPayload(60));
 
         $emitter->on(Event::timerUpdate->name, $this->update(...));
     }

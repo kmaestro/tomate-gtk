@@ -46,6 +46,11 @@ class Timer
         $this->duration = $this->timeLeft = 0;
     }
 
+    public function end(): void
+    {
+        $this->bus->send(Event::timerEnd, new SessionPayload($this->timeLeft));
+    }
+
     private function update(): bool
     {
         if ($this->state !== State::started) {
@@ -53,6 +58,7 @@ class Timer
         }
 
         if ($this->timeLeft <= 0) {
+            $this->end();
             return false;
         }
 

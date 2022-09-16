@@ -12,16 +12,10 @@
         }
     ],
     "require": {
-        "pgtk/gtk": "dev-master",
+        "pgtk/gtk": "0.1.*",
         "php-di/php-di": "^6.3",
         "sabre/event": "^5.1"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "packages/pgtk/gtk"
-        }
-    ],
     "require-dev": {
         "symfony/var-dumper": "^6.0"
     }
