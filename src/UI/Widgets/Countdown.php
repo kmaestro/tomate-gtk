@@ -5,6 +5,7 @@ namespace Tomate\UI\Widgets;
 use PGtk\Gtk\Gtk\Label;
 use Sabre\Event\EmitterInterface;
 use Sabre\Event\EventEmitter;
+use Tomate\Pomodoro\Config;
 use Tomate\Pomodoro\Event\Enum\Event;
 use Tomate\Pomodoro\SessionPayload;
 
@@ -20,7 +21,8 @@ class Countdown extends Label
         $this->widget->setMarginBottom(10);
         $this->widget->setMarginEnd(10);
         $this->widget->setMarginStart(10);
-        $this->update(new SessionPayload(60));
+
+        $this->update(new SessionPayload(Config::DEFAULTS['DURATION_POMODORO'] * 60));
 
         $emitter->on(Event::timerUpdate->name, $this->update(...));
     }

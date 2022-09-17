@@ -2,22 +2,25 @@
 
 namespace Tomate\Pomodoro\Event\Enum;
 
-enum Event: int
+enum Event
 {
-    case timerStart = 0;
-    case timerUpdate = 1;
-    case timerStop = 2;
-    case timerEnd = 3;
+    case startApp;
+    case stopApp;
 
-    case sessionReady = 4;
-    case sessionStart = 5;
-    case sessionInterrupt = 6;
-    case sessionChange = 7;
-    case sessionEnd = 8;
-    case sessionReset = 9;
+    case timerStart;
+    case timerUpdate;
+    case timerStop;
+    case timerEnd;
 
-    case windowShow = 10;
-    case windowHide = 11;
+    case sessionReady;
+    case sessionStart;
+    case sessionInterrupt;
+    case sessionChange;
+    case sessionEnd;
+    case sessionReset;
 
-    case configChange = 12;
+    case windowShow;
+    case windowHide;
+
+    case configChange;
 }

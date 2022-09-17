@@ -6,6 +6,8 @@ use PGtk\Gtk\GLib\MainLoop;
 use PGtk\Gtk\Gtk\Box;
 use PGtk\Gtk\Gtk\Enum\Orientation;
 use PGtk\Gtk\Gtk\Window as BaseWindow;
+use Sabre\Event\EventEmitter;
+use Tomate\Pomodoro\Event\Enum\Event;
 use Tomate\UI\Widgets\Countdown;
 use Tomate\UI\Widgets\Header;
 
@@ -14,7 +16,7 @@ class Window extends BaseWindow
     public function __construct(
         public readonly Header    $header,
         public readonly Countdown $countdown,
-        public readonly MainLoop  $mainLoop
+        private EventEmitter $emitter
     )
     {
         parent::__construct();
@@ -24,11 +26,10 @@ class Window extends BaseWindow
         $this->setChild($this->content($countdown));
     }
 
-    public function run()
+    public function show()
     {
-        $this->connect('destroy', fn() => $this->mainLoop->quit());
+        $this->emitter->emit(Event::windowShow->name);
         $this->widget->show();
-        $this->mainLoop->run();
     }
 
     private function content(Countdown $countdown): Box

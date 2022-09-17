@@ -14,7 +14,7 @@ class Session
         private Timer $timer,
         private EventEmitter $emitter
     ) {
-        $this->emitter->on(Event::timerEnd->value, $this->end(...));
+        $this->emitter->on(Event::timerEnd->name, $this->end(...));
     }
 
     public function start()
@@ -31,6 +31,6 @@ class Session
     {
         $this->pomodoros++;
 
-        $this->bus->send(Event::sessionEnd, new SessionPayload(0));
+        $this->bus->send(Event::sessionEnd, new SessionPayload(Config::DEFAULTS['DURATION_POMODORO']));
     }
 }
