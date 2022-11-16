@@ -19,7 +19,8 @@ class Session
 
     public function start()
     {
-        $this->timer->start(Config::DEFAULTS['DURATION_POMODORO']*60);
+        $this->timer->start();
+//        $this->emitter->emit('isBlock', [true]);
     }
 
     public function stop()
